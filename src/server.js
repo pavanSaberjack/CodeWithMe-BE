@@ -1,6 +1,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 
+// Routers
+const codegenRouter = require("./routes/codegenRouter");
+
 // Import the external route handler
 const genAIManager = require("./modules/gen-ai/gen-ai-manager");
 
@@ -14,8 +17,11 @@ app.get("/", (req, res) => {
   res.send("Hello, World!");
 });
 
-// Route POST requests to '/generate' to the genAIManager module
-app.post("/generate", genAIManager.generateText);
+// Use routers
+app.use("/api/codegen", codegenRouter);
+
+// // Route POST requests to '/generate' to the genAIManager module
+// app.post("/generate", genAIManager.generateText);
 
 // Middleware to handle 404 (Not Found)
 app.use((req, res) => {

@@ -4,6 +4,11 @@ const ai_service = new AIService();
 
 async function generateText(req, res) {
   console.log("in: gen-ai-manager:generateText  Request here: " + req.url);
+
+  if (!req.body.messages) {
+    return res.status(400).send("message is required");
+  }
+
   try {
     const chatResponse = await ai_service.generateText(req, res);
     res.json({ response: chatResponse });
