@@ -93,7 +93,9 @@ CodeWithMe-BE/
 │   ├── routes/
 │   ├── app.js
 │   └── server.js
-├── .env
+├── .env.development
+├── .env.test
+├── .env.production
 ├── .gitignore
 ├── package.json
 └── README.md
