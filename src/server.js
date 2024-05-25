@@ -2,7 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 
 // Import the external route handler
-const genAIManager = require("./gen-ai/gen-ai-manager");
+const genAIManager = require("./modules/gen-ai/gen-ai-manager");
 
 const app = express();
 const port = 3000; // You can choose any port that is available
