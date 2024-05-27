@@ -4,6 +4,6 @@ const router = express.Router();
 const genAIManager = require("../modules/gen-ai/gen-ai-manager");
 
 // POST request to generate code
-router.post("/generate", genAIManager.generateText);
+router.post("/generate", genAIManager.generateCode);
 
 module.exports = router;

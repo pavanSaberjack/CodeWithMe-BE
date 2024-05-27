@@ -4,6 +4,7 @@ require("dotenv").config({
 
 const axios = require("axios");
 const AI_service = require("../gen-ai-service");
+const prompts = require("./data/prompts");
 
 require("dotenv").config();
 console.log(process.env.HELLO); // remove this
@@ -17,10 +18,15 @@ const endpoint = process.env.OPENAI_END_POINT;
 class OpenAIService extends AI_service {
   async generateText(req, res) {
     console.log("in: open-ai-manager:generateText  Request here: " + req.url);
-    // const { model, messages } = req.body;
+    let prompt = prompts["solid_principle"] + "\n" + req.body.messages;
     const { model, messages } = {
       model: openAIModel,
-      messages: [{ role: role, content: req.body.messages }],
+      messages: [
+        {
+          role: role,
+          content: prompt,
+        },
+      ],
     };
     const chatResponse = await this.#chatWithOpenAI(model, messages);
     return chatResponse;

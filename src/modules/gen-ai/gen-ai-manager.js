@@ -2,7 +2,7 @@ const AIService = require("./OpenAI/open-ai-service");
 
 const ai_service = new AIService();
 
-async function generateText(req, res) {
+async function generateCode(req, res) {
   console.log("in: gen-ai-manager:generateText  Request here: " + req.url);
 
   if (!req.body.messages) {
@@ -34,6 +34,6 @@ function fetchMoreData(req, res) {
 
 // Export the functions
 module.exports = {
-  generateText,
+  generateCode,
   fetchMoreData,
 };
