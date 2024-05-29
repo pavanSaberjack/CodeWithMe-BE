@@ -27,12 +27,8 @@ app.get("/", (req, res) => {
 // Define Routes
 app.use("/api/users", userRoutes);
 
-app.get("/api/protected", auth, (req, res) => {
-  res.send("Access granted to protected resource");
-});
-
 // Use routers
-app.use("/api/codegen", codegenRouter);
+app.use("/api/codegen", auth, codegenRouter);
 
 // Middleware to handle 404 (Not Found)
 app.use((req, res) => {
