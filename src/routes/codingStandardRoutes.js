@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const codingStandardsService = require("../modules/coding-standards/codingStandardsService");
+const codingStandardsService = require("../modules/coding-standard/codingStandardService");
 
 router.get("/coding-standards", codingStandardsService.getAll);
 
