@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const User = require("../models/User");
 
+// POST /users/register - Register user and return token
 router.post("/register", register);
 
 // POST /users/login - Authenticate user and return token

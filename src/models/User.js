@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 
+const collectionName = "User";
 const UserSchema = new mongoose.Schema(
   {
     email: {
@@ -13,7 +14,7 @@ const UserSchema = new mongoose.Schema(
       required: true,
     },
   },
-  { collection: "User" }
+  { collection: collectionName }
 );
 
 // Pre-save middleware to hash password before saving the user document
@@ -23,4 +24,4 @@ UserSchema.pre("save", async function (next) {
   next();
 });
 
-module.exports = mongoose.model("User", UserSchema);
+module.exports = mongoose.model(collectionName, UserSchema);
