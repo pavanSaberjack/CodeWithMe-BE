@@ -2,7 +2,7 @@
 const express = require("express");
 const router = express.Router();
 const genAIManager = require("../modules/gen-ai/gen-ai-manager");
-const codingStandardRoutes = require("./codingStandardRoutes");
+const codingStandardRoutes = require("./coding-standard-routes");
 
 // POST request to generate code
 router.post("/generate", genAIManager.generateCode);

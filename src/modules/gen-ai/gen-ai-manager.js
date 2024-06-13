@@ -1,4 +1,4 @@
-const AIService = require("./OpenAI/open-ai-service");
+const AIService = require("./open-ai/open-ai-service");
 
 const ai_service = new AIService();
 

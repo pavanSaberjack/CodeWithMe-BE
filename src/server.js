@@ -2,8 +2,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 
 // Routers
-const codegenRouter = require("./routes/codegenRouter");
-const userRoutes = require("./routes/users");
+const codegenRouter = require("./routes/code-gen-routes");
+const userRoutes = require("./routes/user-routes");
 
 // Authentication
 const auth = require("./middleware/authentication/auth");
