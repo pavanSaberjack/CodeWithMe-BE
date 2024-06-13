@@ -1,11 +1,11 @@
 // routes/codegenRouter.js
 const express = require("express");
 const router = express.Router();
-const genAIManager = require("../modules/gen-ai/gen-ai-manager");
+const codeGenService = require("../modules/code-gen-service/code-gen-service");
 const codingStandardRoutes = require("./coding-standard-routes");
 
 // POST request to generate code
-router.post("/generate", genAIManager.generateCode);
+router.post("/generate", codeGenService.generateCode);
 
 // Use routers
 router.use("/rules", codingStandardRoutes);
