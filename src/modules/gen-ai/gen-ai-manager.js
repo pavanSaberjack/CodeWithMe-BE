@@ -2,19 +2,13 @@ const AIService = require("./open-ai/open-ai-service");
 
 const ai_service = new AIService();
 
-async function generateCode(req, res) {
-  console.log("in: gen-ai-manager:generateText  Request here: " + req.url);
-
-  if (!req.body.messages) {
-    return res.status(400).send("message is required");
-  }
-
+async function generateCode(rules, code) {
   try {
-    const chatResponse = await ai_service.generateText(req, res);
-    res.json({ response: chatResponse });
+    const chatResponse = await ai_service.generateText(rules, code);
+    return chatResponse;
   } catch (error) {
     console.error("API Error:", error.message);
-    res.status(500).send("Failed to fetch response from OpenAI");
+    throw Error("Failed to fetch response from OpenAI");
   }
 }
 

@@ -16,9 +16,9 @@ const role = process.env.OPENAI_API_ROLE;
 const endpoint = process.env.OPENAI_END_POINT;
 
 class OpenAIService extends AI_service {
-  async generateText(req, res) {
-    console.log("in: open-ai-manager:generateText  Request here: " + req.url);
-    let prompt = prompts["solid_principle"] + "\n" + req.body.messages;
+  async generateText(rules, ask) {
+    let prompt = this.generatePrompt(rules, ask);
+
     const { model, messages } = {
       model: openAIModel,
       messages: [
@@ -55,6 +55,15 @@ class OpenAIService extends AI_service {
       console.error("Error calling OpenAI Chat API:", error.code);
       throw new Error("Failed to communicate with OpenAI");
     }
+  }
+
+  generatePrompt(rules, ask) {
+    var prompt = prompts["user_persona"];
+    for (const rule of rules) {
+      prompt = prompt + "\n" + rule.rule;
+    }
+    prompt = prompt + "\n\n" + ask;
+    return prompt;
   }
 }
 

@@ -1,12 +1,7 @@
 const prompts = {
-  solid_principle:
-    'ACT as a pair programmer who is helping me in improving my code. Follow the rules. \
-    \
-    1. Only share code snippets. \
-    2. Anything other than a code snippet should be embedded between "/*" and "*/" \
-    3. Avoid explanation \
-    \
-    Improve the below code snippet to adhere to the SOLID principle',
+  user_persona:
+    "ACT as a pair programmer who is helping me in improving my code. Follow the rules. \
+    ",
 
   unit_test:
     'ACT as a pair programmer who is helping me in improving my code. Follow the rules. \
@@ -17,6 +12,15 @@ const prompts = {
     \
     Write Unit tests for the below iOS code snippet\
     ',
+
+  solid_principle:
+    'ACT as a pair programmer who is helping me in improving my code. Follow the rules. \
+    \
+    1. Only share code snippets. \
+    2. Anything other than a code snippet should be embedded between "/*" and "*/" \
+    3. Avoid explanation \
+    \
+    Improve the below code snippet to adhere to the SOLID principle',
 };
 
 module.exports = prompts;
