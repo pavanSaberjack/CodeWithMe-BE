@@ -12,7 +12,24 @@ async function getAll(req, res) {
   }
 }
 
-async function update(req, res) {}
+async function update(req, res) {
+  // Get the rule from the message body
+  let rule = req.body.rule;
+  console.log(rule);
+
+  // add it to the Rules table
+  try {
+    let codingStandard = new CodingStandard({ rule });
+    console.log("crated new CodingStandard object");
+    await codingStandard.save();
+    console.log("saved new CodingStandard object");
+    res.status(201).json("Rules updated");
+  } catch (err) {
+    // respond Success/ Error
+    console.error(err.message);
+    res.status(500).send("Something went wrong! Rule could not be updated");
+  }
+}
 
 async function remove(req, res) {}
 
